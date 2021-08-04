@@ -60,7 +60,7 @@ color: darkred;
         border-style: groove;
         border-color: black;
         margin-top: 10%;
-        margin-right: 70px;
+        margin-right: 12%;
     }
     #currentCardArea { 
         float: right;
@@ -71,7 +71,7 @@ color: darkred;
         background: #ccc;
         padding: 20px;
         margin-top: 10%;
-        margin-right: 140px;
+        margin-right: 23%;
         border-style: groove;
         border-color: black;
     }

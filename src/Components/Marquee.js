@@ -5,12 +5,14 @@ export default function BillBoard() {
   return (
     <center><div
     style={{
-      width: '350px',
-      whiteSpace: 'nowrap'
+      "width": "250px",
+      whiteSpace: 'nowrap',
+      color: 'crimson',
+      "fontSize": "24px"
 }}
   >
     <Marquee>
-      Welcome to Rolltide Casino
+      Rolltide Casino
     </Marquee>
   </div></center>
     )
