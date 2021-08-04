@@ -14,61 +14,62 @@ function Casino() {
   const dispatch = useDispatch();
 
   const [cardDeck, setDeck ]  = useState([
-{card_number: 1, value: 1, image_url: "./cards/spades/AS.jpg"},
-{card_number: 2, value: 2, image_url: "./cards/spades/2S.jpg"},
-{card_number: 3, value: 3, image_url: "./cards/spades/3S.jpg"},
-{card_number: 4, value: 4, image_url: "./cards/spades/4S.jpg"},
-{card_number: 5, value: 5, image_url: "./cards/spades/5S.jpg"},
-{card_number: 6, value: 6, image_url: "./cards/spades/6S.jpg"},
-{card_number: 7, value: 7, image_url: "./cards/spades/7S.jpg"},
-{card_number: 8, value: 8, image_url: "./cards/spades/8S.jpg"},
-{card_number: 9, value: 9, image_url: "./cards/spades/9S.jpg"},
-{card_number: 10, value: 10, image_url: "./cards/spades/10S.jpg"},
-{card_number: 11, value: 10, image_url: "./cards/spades/JS.jpg"},
-{card_number: 12, value: 10, image_url: "./cards/spades/QS.jpg"},
-{card_number: 13, value: 10, image_url: "./cards/spades/KS.jpg"},
+    // {require('../public/spades/2S.jpg').default}
+{card_number: 1, value: 1, image_url: "{require('../public/spades/AS.jpg').default}"},
+{card_number: 2, value: 2, image_url: "{require('../public/spades/2S.jpg').default}"},
+{card_number: 3, value: 3, image_url: "{require('../public/spades/3S.jpg').default}"},
+{card_number: 4, value: 4, image_url: "{require('../public/spades/4S.jpg').default}"},
+{card_number: 5, value: 5, image_url: "{require('../public/spades/5S.jpg').default}"},
+{card_number: 6, value: 6, image_url: "{require('../public/spades/6S.jpg').default}"},
+{card_number: 7, value: 7, image_url: "{require('../public/spades/7S.jpg').default}"},
+{card_number: 8, value: 8, image_url: "{require('../public/spades/8S.jpg').default}"},
+{card_number: 9, value: 9, image_url: "{require('../public/spades/9S.jpg').default}"},
+{card_number: 10, value: 10, image_url: "{require('../public/spades/10S.jpg').default}"},
+{card_number: 11, value: 10, image_url: "{require('../public/spades/JS.jpg').default}"},
+{card_number: 12, value: 10, image_url: "{require('../public/spades/QS.jpg').default}"},
+{card_number: 13, value: 10, image_url: "{require('../public/spades/KS.jpg').default}"},
 
-{card_number: 27, value: 1, image_url: "./cards/hearts/AH.jpg"},
-{card_number: 28, value: 2, image_url: "./cards/hearts/2H.jpg"},
-{card_number: 29, value: 3, image_url: "./cards/hearts/3H.jpg"},
-{card_number: 30, value: 4, image_url: "./cards/hearts/4H.jpg"},
-{card_number: 31, value: 5, image_url: "./cards/hearts/5H.jpg"},
-{card_number: 32, value: 6, image_url: "./cards/hearts/6H.jpg"},
-{card_number: 33, value: 7, image_url: "./cards/hearts/7H.jpg"},
-{card_number: 34, value: 8, image_url: "./cards/hearts/8H.jpg"},
-{card_number: 35, value: 9, image_url: "./cards/hearts/9H.jpg"},
-{card_number: 36, value: 10, image_url: "./cards/hearts/10H.jpg"},
-{card_number: 37, value: 10, image_url: "./cards/hearts/JH.jpg"},
-{card_number: 38, value: 10, image_url: "./cards/hearts/QH.jpg"},
-{card_number: 39, value: 10, image_url: "./cards/hearts/KH.jpg"},
+{card_number: 27, value: 1, image_url: "{require('../public/hearts/AH.jpg').default}"},
+{card_number: 28, value: 2, image_url: "{require('../public/hearts/2H.jpg').default}"},
+{card_number: 29, value: 3, image_url: "{require('../public/hearts/3H.jpg').default}"},
+{card_number: 30, value: 4, image_url: "{require('../public/hearts/4H.jpg').default}"},
+{card_number: 31, value: 5, image_url: "{require('../public/hearts/5H.jpg').default}"},
+{card_number: 32, value: 6, image_url: "{require('../public/hearts/6H.jpg').default}"},
+{card_number: 33, value: 7, image_url: "{require('../public/hearts/7H.jpg').default}"},
+{card_number: 34, value: 8, image_url: "{require('../public/hearts/8H.jpg').default}"},
+{card_number: 35, value: 9, image_url: "{require('../public/hearts/9H.jpg').default}"},
+{card_number: 36, value: 10, image_url: "{require('../public/hearts/10H.jpg').default}"},
+{card_number: 37, value: 10, image_url: "{require('../public/hearts/JH.jpg').default}"},
+{card_number: 38, value: 10, image_url: "{require('../public/hearts/QH.jpg').default}"},
+{card_number: 39, value: 10, image_url: "{require('../public/hearts/KH.jpg').default}"},
 
-{card_number: 14, value: 1, image_url: "./cards/clubs/AC.jpg"},
-{card_number: 15, value: 2, image_url: "./cards/clubs/2C.jpg"},
-{card_number: 16, value: 3, image_url: "./cards/clubs/3C.jpg"},
-{card_number: 17, value: 4, image_url: "./cards/clubs/4C.jpg"},
-{card_number: 18, value: 5, image_url: "./cards/clubs/5C.jpg"},
-{card_number: 19, value: 6, image_url: "./cards/clubs/6C.jpg"},
-{card_number: 20, value: 7, image_url: "./cards/clubs/7C.jpg"},
-{card_number: 21, value: 8, image_url: "./cards/clubs/8C.jpg"},
-{card_number: 22, value: 9, image_url: "./cards/clubs/9C.jpg"},
-{card_number: 23, value: 10, image_url: "./cards/clubs/10C.jpg"},
-{card_number: 24, value: 10, image_url: "./cards/clubs/JC.jpg"},
-{card_number: 25, value: 10, image_url: "./cards/clubs/QC.jpg"},
-{card_number: 26, value: 10, image_url: "./cards/clubs/KC.jpg"},
+{card_number: 14, value: 1, image_url: "{require('../public/clubs/AC.jpg').default}"},
+{card_number: 15, value: 2, image_url: "{require('../public/clubs/2C.jpg').default}"},
+{card_number: 16, value: 3, image_url: "{require('../public/clubs/3C.jpg').default}"},
+{card_number: 17, value: 4, image_url: "{require('../public/clubs/4C.jpg').default}"},
+{card_number: 18, value: 5, image_url: "{require('../public/clubs/5C.jpg').default}"},
+{card_number: 19, value: 6, image_url: "{require('../public/clubs/6C.jpg').default}"},
+{card_number: 20, value: 7, image_url: "{require('../public/clubs/7C.jpg').default}"},
+{card_number: 21, value: 8, image_url: "{require('../public/clubs/8C.jpg').default}"},
+{card_number: 22, value: 9, image_url: "{require('../public/clubs/9C.jpg').default}"},
+{card_number: 23, value: 10, image_url: "{require('../public/clubs/10C.jpg').default}"},
+{card_number: 24, value: 10, image_url: "{require('../public/clubs/JC.jpg').default}"},
+{card_number: 25, value: 10, image_url: "{require('../public/clubs/QC.jpg').default}"},
+{card_number: 26, value: 10, image_url: "{require('../public/clubs/KC.jpg').default}"},
 
-{card_number: 40, value: 1, image_url: "./cards/diamonds/AD.jpg"},
-{card_number: 41, value: 2, image_url: "./cards/diamonds/2D.jpg"},
-{card_number: 42, value: 3, image_url: "./cards/diamonds/3D.jpg"},
-{card_number: 43, value: 4, image_url: "./cards/diamonds/4D.jpg"},
-{card_number: 44, value: 5, image_url: "./cards/diamonds/5D.jpg"},
-{card_number: 45, value: 6, image_url: "./cards/diamonds/6D.jpg"},
-{card_number: 46, value: 7, image_url: "./cards/diamonds/7D.jpg"},
-{card_number: 47, value: 8, image_url: "./cards/diamonds/8D.jpg"},
-{card_number: 48, value: 9, image_url: "./cards/diamonds/9D.jpg"},
-{card_number: 49, value: 10, image_url: "./cards/diamonds/10D.jpg"},
-{card_number: 50, value: 10, image_url: "./cards/diamonds/JD.jpg"},
-{card_number: 51, value: 10, image_url: "./cards/diamonds/QD.jpg"},
-{card_number: 52, value: 10, image_url: "./cards/diamonds/KD.jpg"},
+{card_number: 40, value: 1, image_url: "{require('../public/diamonds/AD.jpg').default}"},
+{card_number: 41, value: 2, image_url: "{require('../public/diamonds/2D.jpg').default}"},
+{card_number: 42, value: 3, image_url: "{require('../public/diamonds/3D.jpg').default}"},
+{card_number: 43, value: 4, image_url: "{require('../public/diamonds/4D.jpg').default}"},
+{card_number: 44, value: 5, image_url: "{require('../public/diamonds/5D.jpg').default}"},
+{card_number: 45, value: 6, image_url: "{require('../public/diamonds/6D.jpg').default}"},
+{card_number: 46, value: 7, image_url: "{require('../public/diamonds/7D.jpg').default}"},
+{card_number: 47, value: 8, image_url: "{require('../public/diamonds/8D.jpg').default}"},
+{card_number: 48, value: 9, image_url: "{require('../public/diamonds/9D.jpg').default}"},
+{card_number: 49, value: 10, image_url: "{require('../public/diamonds/10D.jpg').default}"},
+{card_number: 50, value: 10, image_url: "{require('../public/diamonds/JD.jpg').default}"},
+{card_number: 51, value: 10, image_url: "{require('../public/diamonds/QD.jpg').default}"},
+{card_number: 52, value: 10, image_url: "{require('../public/diamonds/KD.jpg').default}"},
   ]);
 
   const fetchDeck = () => {
@@ -81,7 +82,7 @@ function Casino() {
 
   console.log("Card Deck?", cardDeck)
 //   now it will be dynamic.... use:
-//  const image_url = `url("../cards/diamonds/KD.jpg")`
+//  const image_url = `url(".{require('../public/diamonds/KD.jpg")`
 
 
 // ------------------ bidding --------------------
@@ -93,11 +94,14 @@ function Casino() {
   let bidding = document.getElementById('bidding');
   let available = document.getElementById('balance');
   var balance = 500; //init balance
+  let cashOutButtonElement = document.getElementById('cashOut');
+  let dealButton = document.getElementById('gameStats');
+  let card = "9S.jpg";
 
   function setup(){
-  available.innerHTML = "$" + balance + ".00" ;
-  let cashOutButtonElement = document.getElementById('cashOut');
   bidding.innerHTML = bid;
+  dealButton.disabled= "true";
+  buttonElement.disabled= "true";
 }
 
 function plusBidding(){
@@ -142,24 +146,47 @@ function placeBid(){
     swal(" ", "You Can't Bid Nothing.", "warning", {timer: 1000,});
   }
 }
-// function changeImage(){
-//   document.getElementById('currentCard').style.backgroundImage = 'url("../cards/diamonds/8D.jpg")';
-// }
+
+function begin(){
+  document.getElementById("homeButton").remove();
+  let cardGame = document.getElementById('details_cards');
+    setTimeout(() => {cardGame.innerHTML =" " },750);
+    cardGame.style.fontSize = "48px";
+    cardGame.style.color = "orangered";
+    cardGame.style.textAlign = "center";
+
+    setTimeout(()  => {cardGame.innerHTML =" Begin!" },1000);
+    setTimeout(() => {cardGame.innerHTML =" " },2500);
+    setTimeout(() => { findOrCreate() },4000);
+
+    // available.innerHTML = "$" + balance + ".00" ;
+    setTimeout(() => {available.innerHTML = "$" + balance + ".00" },2000);
+}
+
+function findOrCreate(){
+  let previousCard = document.createElement('div');
+  let currentCard = document.createElement('div');
+
+  previousCard.id = 'previousCardArea';
+  currentCard.id = 'currentCardArea';
+
+  let cardTable = document.getElementById('details_cards');
+
+  cardTable.append(currentCard);
+  cardTable.append(previousCard);
+  swal("Welcome Back,", {timer: 2000,});
+const X = Math.floor(Math.random() * 51) + 1
+console.log("First card:", cardDeck[X].image_url);
+setTimeout(() => {swal("Will the next Card be Higher, or Lower?")}, 2000);
+
+};
 
 function changeImage(){
   const rndInt = Math.floor(Math.random() * 51) + 1
-  console.log("Random card:", cardDeck[rndInt])
+  console.log("Random card:", cardDeck[rndInt]);  
 }
 
-  // var PreviousCardStyle = {
-  //   width: "200px",
-  //   height: "305px",
-  //   backgroundImage: {image_url},
-  //   backgroundSize: "100%",
-  //   marginBottom: "0%"
-  // };
-
-  // current and prevCard style will by assigned AFTER the random select
+// current and prevCard style will by assigned AFTER the random select
   return (
     <>
         <div>
@@ -190,17 +217,17 @@ function changeImage(){
     </div>
     <div id="details_cards">
       <BillBoard/>
-    {/* <div id="currentCardArea"><div className="cards" ></div></div> */}
-    <div id="currentCardArea">
+    {/* <div id="currentCardArea">
       <div id="currentCard">
-        <img alt="RolltideCasino" className="cards" src={require('../public/spades/2S.jpg').default}/>
+      <img alt="RolltideCasino" id="leadingCard" className="cards" src={require('../public/spades/9S.jpg').default}/>
       </div>
-    </div>
-    <div id="previousCardArea">
+    </div> */}
+    {/* <div id="previousCardArea">
       <div id="currentCard">
         <img alt="RolltideCasino" className="cards" src={require('../public/spades/9S.jpg').default}/>
       </div>
-    </div>
+    </div> */}
+    <button id="homeButton" onClick={begin}>Let's Play!</button>
     </div>
     <button id="gameStats" onClick={changeImage}>Deal</button>
     </div>
