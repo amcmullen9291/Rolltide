@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { connect, useDispatch } from 'react-redux';
 import { setCards } from '../Actions/GameActions';
 import PlaySong from './PlaySong';
+import Card2 from '../Assets/cards/diamonds/8D.jpg' //just a test url
+import BillBoard from './Marquee';
+import swal from 'sweetalert';
 
 function Casino() {
   document.addEventListener('DOMContentLoaded', (event) => {
@@ -76,51 +79,69 @@ function Casino() {
     fetchDeck();
   }, []);
 
-// const PlaySong = (
-//   handleSongLoading,
-//   handleSongPlaying,
-//   handleSongFinishedPlaying
-// ) => { 
-//   return(
-//   <div>
-//   <Sound
-//   url={backgroundMusic}
-//   playStatus={Sound.status.PLAYING}
-//   playFromPosition={300}
-//   onLoading={handleSongLoading}
-//   onPlaying={handleSongPlaying}
-//   onFinishedPlaying={handleSongFinishedPlaying}
-//   />
-// </div>
-// );
+  console.log("Card Deck?", cardDeck)
+  //now it will be dynamic....
+ const image_url = `url("../Assets/cards/diamonds/KD.jpg")`
+// console.log("url:",image);
+
+
+// function changeImage(){
+//   document.getElementById('currentCard').style.backgroundImage = 'url("../Assets/cards/diamonds/8D.jpg")';
 // }
 
-  console.log("Card Deck?", cardDeck)
- const Background = "./Assets/cards/diamonds/KD.jpg"
-  var CurrentCardStyle = {
-    width: "200px",
-    height: "245px",
-    backgroundImage: "url(" + { Background } + ")"
-  };
+console.log("card:", Card2)
 
-  var PreviousCardStyle = {
-    width: "200px",
-    height: "245px",
-    backgroundImage: "url(" + { Background } + ")"
-  };
+function changeImage(){
+  let card1 = document.getElementById('currentCard')
+  card1.innerHTML = {Card2} 
+swal("Remember", "There are a million ways to do everything. Just like there are a million languages to do it in. Good night.")
+}
+
+  // var PreviousCardStyle = {
+  //   width: "200px",
+  //   height: "305px",
+  //   backgroundImage: {image_url},
+  //   backgroundSize: "100%",
+  //   marginBottom: "0%"
+  // };
 
   // current and prevCard stype will by assigned AFTER the random select
   return (
     <>
-        <div id="casino_floor">
+        <div>
     <h1 id="welcomed">
       <center><PlaySong/></center>
     </h1>
     <main >
         <center><p id="main"> Higer-Lower</p></center>
     </main>
-    <div id="currentCardArea" style={ CurrentCardStyle }></div>
-    <div id="previousCardArea" style={ PreviousCardStyle }></div>
+    <div id="details">
+    <span id="bid_count">current bid:</span><br/>
+    <h1 id='bidding'>
+    </h1>
+    <button id='plus' > Increase Bid </button>      <button id='minus' > Decrease Bid </button><br/>
+<hr/>
+<span>higher:<input type="checkbox" id="higher" name="higher" /></span><br/>    <button id='pause'> BID </button>
+<button id= "cashOut"> Cash Out <i class='far fa-money-bill-alt'></i></button><br/>
+<br/>
+<span>Your Balance:</span>
+<h1 id='balance'>
+  
+</h1> <br/>
+
+
+    </div>
+    <div id="details_plus">
+
+    </div>
+    <div id="details_cards">
+      <BillBoard/>
+    {/* <div id="currentCardArea"><div className="cards" ></div></div> */}
+    <div id="currentCardArea"><div id="currentCard"></div></div>
+    <div id="previousCardArea">
+    </div>
+    </div>
+    <button id="gameStats" onClick={changeImage}>Deal</button>
     </div>
     </>
   )
