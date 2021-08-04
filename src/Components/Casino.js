@@ -9,6 +9,7 @@ function Casino() {
   document.addEventListener('DOMContentLoaded', (event) => {
     console.log('DOM fully loaded and parsed');
   });
+  window.onload = setup;
 
   const dispatch = useDispatch();
 
@@ -79,18 +80,75 @@ function Casino() {
   }, []);
 
   console.log("Card Deck?", cardDeck)
-  //now it will be dynamic....
- const image_url = `url("../cards/diamonds/KD.jpg")`
-// console.log("url:",image);
+//   now it will be dynamic.... use:
+//  const image_url = `url("../cards/diamonds/KD.jpg")`
 
 
+// ------------------ bidding --------------------
+
+  let buttonElement = document.getElementById('pause');
+  let plusButtonElement = document.getElementById('plus');
+  let minusButtonElement = document.getElementById('minus');
+  let bid = 25.00;
+  let bidding = document.getElementById('bidding');
+  let available = document.getElementById('balance');
+  var balance = 500; //init balance
+
+  function setup(){
+  available.innerHTML = "$" + balance + ".00" ;
+  let cashOutButtonElement = document.getElementById('cashOut');
+  bidding.innerHTML = bid;
+}
+
+function plusBidding(){
+  bid += 5
+    bidding.innerHTML = bid;
+    if (bid > 45){
+      bidding.style.color = "red";
+    };
+    if (bid > 95){
+      bidding.style.color = "purple";
+    };
+}
+
+function minusBidding(){
+  if (bid >= 5){
+    bid -= 5;
+  };
+  if (bid < 50){
+    bidding.style.color = "black";
+  };
+    if (bid >= 0){
+    bidding.innerHTML = bid;
+  };
+  if (bid === 0){
+    swal(" ", "Please Place A Bid.", "info", {timer: 1000,});
+  };
+}
+
+function placeBid(){
+  balance -= bid
+  if (balance >= 0 && bid !== 0){
+  available.innerHTML = "$" + balance + ".00" ;
+  buttonElement.disabled = true;
+  // let dealButton = document.getElementById("cardDealer");
+  // dealButton.disabled = false;
+  };
+  if (balance < 0){
+    alert("See? Now, You don't have enough money to buy a cheeseburger on the ride home.");
+    window.location.reload();
+  }
+  if (bid === 0){
+    swal(" ", "You Can't Bid Nothing.", "warning", {timer: 1000,});
+  }
+}
 // function changeImage(){
 //   document.getElementById('currentCard').style.backgroundImage = 'url("../cards/diamonds/8D.jpg")';
 // }
 
 function changeImage(){
-
-swal("Remember", "There are a million ways to do everything. Just like there are a million languages to do it in. Good night.")
+  const rndInt = Math.floor(Math.random() * 51) + 1
+  console.log("Random card:", cardDeck[rndInt])
 }
 
   // var PreviousCardStyle = {
@@ -113,11 +171,11 @@ swal("Remember", "There are a million ways to do everything. Just like there are
     </main>
     <div id="details">
     <span id="bid_count">current bid:</span><br/>
-    <h1 id='bidding'> 50
+    <h1 id='bidding'>
     </h1>
-    <button id='plus' > Increase Bid </button>      <button id='minus' > Decrease Bid </button><br/>
+    <button id='plus' onClick={plusBidding}> Increase Bid </button>      <button id='minus' onClick={minusBidding}> Decrease Bid </button><br/>
 <hr/>
-<span>higher:<input type="checkbox" id="higher" name="higher" /></span><br/>    <button id='pause'> BID </button>
+<span>higher:<input type="checkbox" id="higher" name="higher" /></span><br/>    <button id='pause' onClick={placeBid}> BID </button>
 <button id= "cashOut"> Cash Out <i class='far fa-money-bill-alt'></i></button><br/>
 <br/>
 <span>Your Balance:</span>
