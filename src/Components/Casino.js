@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { connect, useDispatch } from 'react-redux';
 import { setCards } from '../Actions/GameActions';
 import PlaySong from './PlaySong';
-import Card2 from '../cards/diamonds/8D.jpg' //just a test url
 import BillBoard from './Marquee';
 import swal from 'sweetalert';
 
@@ -89,11 +88,8 @@ function Casino() {
 //   document.getElementById('currentCard').style.backgroundImage = 'url("../cards/diamonds/8D.jpg")';
 // }
 
-console.log("card:", Card2)
-
 function changeImage(){
-  let card1 = document.getElementById('currentCard')
-  card1.innerHTML = {Card2} 
+
 swal("Remember", "There are a million ways to do everything. Just like there are a million languages to do it in. Good night.")
 }
 
@@ -105,7 +101,7 @@ swal("Remember", "There are a million ways to do everything. Just like there are
   //   marginBottom: "0%"
   // };
 
-  // current and prevCard stype will by assigned AFTER the random select
+  // current and prevCard style will by assigned AFTER the random select
   return (
     <>
         <div>
@@ -137,8 +133,15 @@ swal("Remember", "There are a million ways to do everything. Just like there are
     <div id="details_cards">
       <BillBoard/>
     {/* <div id="currentCardArea"><div className="cards" ></div></div> */}
-    <div id="currentCardArea"><div id="currentCard"></div></div>
+    <div id="currentCardArea">
+      <div id="currentCard">
+        <img alt="RolltideCasino" className="cards" src={require('../public/spades/2S.jpg').default}/>
+      </div>
+    </div>
     <div id="previousCardArea">
+      <div id="currentCard">
+        <img alt="RolltideCasino" className="cards" src={require('../public/spades/9S.jpg').default}/>
+      </div>
     </div>
     </div>
     <button id="gameStats" onClick={changeImage}>Deal</button>
