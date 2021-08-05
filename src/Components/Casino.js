@@ -170,11 +170,13 @@ function findOrCreate(){
   let currentCard = document.createElement('div');
   let cardBack = document.createElement('div');
   let backContainer = document.createElement('div');
+  let previousCardArea = document.createElement('div');
 
   previousCard.id = 'previousCardArea';
   currentCard.id = 'currentCardArea';
   cardBack.id ='cardBackArea';
   backContainer.id = 'currentCard';
+  previousCardArea.id = 'previousCard';
 
 
   let cardTable = document.getElementById('details_cards');
@@ -184,14 +186,22 @@ function findOrCreate(){
   cardTable.append(previousCard);
   // ------------------------------------
 let img = document.createElement('img');
-img.src= "./CB.jpg"
+const X = Math.floor(Math.random() * 51) + 1
+let img2 = document.createElement('img');
+
+img2.src = cardDeck[X].image_url;
+img2.className = "cards";
+currentCard.append(previousCardArea);
+previousCardArea.append(img2)
+
+img.src= "./CB.jpg";
 img.className= "cards";
 cardBack.append(backContainer);
 backContainer.append(img);
 
   // -------------------------------------------
   swal("Welcome Back,", {timer: 2000,});
-const X = Math.floor(Math.random() * 51) + 1
+// const X = Math.floor(Math.random() * 51) + 1
 console.log("First card:", cardDeck[X].image_url);
 setTimeout(() => {swal("Will the next Card be Higher, or Lower?")}, 2000);
 
@@ -236,7 +246,7 @@ function changeImage(){
 
       <div id="cardBackArea">
       <div id="currentCard">
-      <img alt="RolltideCasino" id="leadingCard" className="cards" src={`${process.env.PUBLIC_URL}/${cardBack}`}/>
+      <img alt="RolltideCasino" id="deckBacks" className="cards" src={`${process.env.PUBLIC_URL}/${cardBack}`}/>
       </div>
     </div>
 
@@ -247,7 +257,7 @@ function changeImage(){
     </div>
     <div id="previousCardArea">
       <div id="currentCard">
-      <img alt="RolltideCasino" id="leadingCard" className="cards" src={`${process.env.PUBLIC_URL}/${card2}`}/>
+      <img alt="RolltideCasino" id="previousCard" className="cards" src={`${process.env.PUBLIC_URL}/${card2}`}/>
       </div>
     </div>
     <button id="homeButton" onClick={begin}>Let's Play!</button>
