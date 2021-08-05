@@ -60,7 +60,7 @@ color: darkred;
         border-style: groove;
         border-color: black;
         margin-top: 10%;
-        margin-right: 12%;
+        margin-right: 3%;
     }
     #currentCardArea { 
         float: right;
@@ -71,7 +71,7 @@ color: darkred;
         background: #ccc;
         padding: 20px;
         margin-top: 10%;
-        margin-right: 23%;
+        margin-right: 8%;
         border-style: groove;
         border-color: black;
     }
@@ -187,4 +187,19 @@ Marqu
 
 #cashOut{
     background-color: yellow;;
+}
+/* ------------ 1st/3rd section in card table------------- */
+#cardBacks{
+    float: right;
+    width: 85px;
+    display: block;
+    margin: auto;
+    height: 150px; /* only for demonstration, should be removed */
+    background: #ccc;
+    padding: 20px;
+    margin-top: 10%;
+    margin-right: 10%;
+    border-style: groove;
+    border-color: black;
+
 }
