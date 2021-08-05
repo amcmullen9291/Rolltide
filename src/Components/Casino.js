@@ -96,7 +96,7 @@ function Casino() {
   var balance = 500; //init balance
   let cashOutButtonElement = document.getElementById('cashOut');
   let dealButton = document.getElementById('gameStats');
-  let card = "9S.jpg";
+  let card = "AH.jpg";
 
   function setup(){
   bidding.innerHTML = bid;
@@ -217,11 +217,11 @@ function changeImage(){
     </div>
     <div id="details_cards">
       <BillBoard/>
-    {/* <div id="currentCardArea">
+    <div id="currentCardArea">
       <div id="currentCard">
-      <img alt="RolltideCasino" id="leadingCard" className="cards" src={require('../public/spades/9S.jpg').default}/>
+      <img alt="RolltideCasino" id="leadingCard" className="cards" src={`${process.env.PUBLIC_URL}/${card}`}/>
       </div>
-    </div> */}
+    </div>
     {/* <div id="previousCardArea">
       <div id="currentCard">
         <img alt="RolltideCasino" className="cards" src={require('../public/spades/9S.jpg').default}/>
