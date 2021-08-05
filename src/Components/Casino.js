@@ -215,8 +215,10 @@ console.log("moving Card", trailCard)
 previousCard.append(trailCard);
 
 };
-
+var time  = 1;
 function changeImage(){
+
+if(time == 1){
   const rndInt = Math.floor(Math.random() * 51) + 1
   console.log("Next Random card:", cardDeck[rndInt]); 
   let LeadCard = cardDeck[rndInt];
@@ -231,8 +233,21 @@ function changeImage(){
   // currentCard.append(currentCardArea);
   currentCard.append(card2);
 
-  console.log("Moved Card", trailCard)
+  console.log("Moved Card", trailCard);
+let buttonDeal = document.getElementById('gameStats');
+console.log("target:", buttonDeal)
+  // buttonDeal.onClick.disabled = true;
 }
+if(time > 1 ){
+  alert("React.js")
+}
+time+=1
+
+}
+
+// function tester(){
+//   alert("all JS");
+// }
 
 // current and prevCard style will by assigned AFTER the random select
   return (
