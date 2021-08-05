@@ -99,6 +99,7 @@ function Casino() {
   let card = "AH.jpg";
   let card2 = "8C.jpg"
   let cardBack = "CB.jpg";
+  var trailCard;
 
   function setup(){
   bidding.innerHTML = bid;
@@ -188,9 +189,10 @@ function findOrCreate(){
 let img = document.createElement('img');
 const X = Math.floor(Math.random() * 51) + 1
 let img2 = document.createElement('img');
-
-img2.src = cardDeck[X].image_url;
+let leadCard = cardDeck[X];
+img2.src = leadCard.image_url;
 img2.className = "cards";
+let value1 = leadCard.value
 currentCard.append(previousCardArea);
 previousCardArea.append(img2)
 
@@ -204,12 +206,32 @@ backContainer.append(img);
 // const X = Math.floor(Math.random() * 51) + 1
 console.log("First card:", cardDeck[X].image_url);
 setTimeout(() => {swal("Will the next Card be Higher, or Lower?")}, 2000);
+let bid_btn = document.getElementById('pause');
+bid_btn.disabled = false;
+let playButton = document.getElementById('gameStats');
+playButton.disabled = false;
+var trailCard = Object.assign(img2)
+console.log("moving Card", trailCard)
+previousCard.append(trailCard);
 
 };
 
 function changeImage(){
   const rndInt = Math.floor(Math.random() * 51) + 1
-  console.log("Random card:", cardDeck[rndInt]);  
+  console.log("Next Random card:", cardDeck[rndInt]); 
+  let LeadCard = cardDeck[rndInt];
+
+  card2 = document.createElement('img');
+  card2.src = LeadCard.image_url;
+  card2.className = "cards"
+  card2.valule = LeadCard.value;
+
+  let currentCard = document.getElementById('currentCardArea');
+  let currentCardArea = document.getElementById('currentCard');
+  // currentCard.append(currentCardArea);
+  currentCard.append(card2);
+
+  console.log("Moved Card", trailCard)
 }
 
 // current and prevCard style will by assigned AFTER the random select
