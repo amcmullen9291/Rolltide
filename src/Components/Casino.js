@@ -168,14 +168,28 @@ function begin(){
 function findOrCreate(){
   let previousCard = document.createElement('div');
   let currentCard = document.createElement('div');
+  let cardBack = document.createElement('div');
+  let backContainer = document.createElement('div');
 
   previousCard.id = 'previousCardArea';
   currentCard.id = 'currentCardArea';
+  cardBack.id ='cardBackArea';
+  backContainer.id = 'currentCard';
+
 
   let cardTable = document.getElementById('details_cards');
 
+  cardTable.append(cardBack);
   cardTable.append(currentCard);
   cardTable.append(previousCard);
+  // ------------------------------------
+let img = document.createElement('img');
+img.src= "./CB.jpg"
+img.className= "cards";
+cardBack.append(backContainer);
+backContainer.append(img);
+
+  // -------------------------------------------
   swal("Welcome Back,", {timer: 2000,});
 const X = Math.floor(Math.random() * 51) + 1
 console.log("First card:", cardDeck[X].image_url);
@@ -220,7 +234,7 @@ function changeImage(){
     <div id="details_cards">
       <BillBoard/>
 
-      <div id="cardBacks">
+      <div id="cardBackArea">
       <div id="currentCard">
       <img alt="RolltideCasino" id="leadingCard" className="cards" src={`${process.env.PUBLIC_URL}/${cardBack}`}/>
       </div>
@@ -240,6 +254,7 @@ function changeImage(){
     </div>
     <button id="gameStats" onClick={changeImage}>Deal</button>
     </div>
+    <button>Settings</button>
     </>
   )
 }

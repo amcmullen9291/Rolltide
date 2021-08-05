@@ -189,7 +189,7 @@ Marqu
     background-color: yellow;;
 }
 /* ------------ 1st/3rd section in card table------------- */
-#cardBacks{
+#cardBackArea{
     float: right;
     width: 85px;
     display: block;
