@@ -222,7 +222,7 @@ previousCard.append(TrailCard);
 var time  = 1;
 function changeImage(){
 
-if(time == 1){
+if(time === 1){
   const rndInt = Math.floor(Math.random() * 51) + 1
   console.log("Next Random card:", cardDeck[rndInt]); 
   let LeadCard = cardDeck[rndInt];
@@ -253,8 +253,24 @@ if(time > 1 ){
   previousCardArea.append(FrontCard);
   console.log(FrontCard.value)
   TrailCard = Object.assign(FrontCard);
-  // previousCardArea.replaceChild(FrontCard, TrailCard)
   console.log("Now its the Back card:", TrailCard)
+
+  //do a new random card and object assign it to front card
+
+  const  X2= Math.floor(Math.random() * 51) + 1
+  console.log("Next Random card:", cardDeck[X2]); 
+  let LeadCard = cardDeck[X2];
+
+  let card2 = document.createElement('img');
+  card2.src = LeadCard.image_url;
+  card2.className = "cards"
+  card2.value = LeadCard.value;
+
+  let currentCard = document.getElementById('currentCardArea');
+  let currentCardArea = document.getElementById('currentCard');
+  // currentCard.append(currentCardArea);
+  currentCard.append(card2);
+  FrontCard = Object.assign(card2)
 }
 time+=1
 
