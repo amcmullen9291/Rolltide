@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, createElement } from 'react';
 import { connect, useDispatch } from 'react-redux';
 import { setCards } from '../Actions/GameActions';
 import PlaySong from './PlaySong';
@@ -192,6 +192,7 @@ const X = Math.floor(Math.random() * 51) + 1
 let img2 = document.createElement('img');
 let leadCard = cardDeck[X];
 img2.src = leadCard.image_url;
+img2.value = leadCard.value
 img2.className = "cards";
 var imgID = leadCard.card_number;
 currentCard.append(previousCardArea);
@@ -220,10 +221,11 @@ previousCard.append(TrailCard);
 
 };
 var time  = 1;
+var resultsTally = 1;
 function changeImage(){
 
 if(time === 1){
-  const rndInt = Math.floor(Math.random() * 51) + 1
+  const rndInt = Math.floor(Math.random() * 51) + 1;
   console.log("Next Random card:", cardDeck[rndInt]); 
   let LeadCard = cardDeck[rndInt];
  console.log(TrailCard)
@@ -243,6 +245,45 @@ if(time === 1){
 let buttonDeal = document.getElementById('gameStats');
 console.log("target:", buttonDeal)
   // buttonDeal.onClick.disabled = true;
+let A = TrailCard.value;
+let B = FrontCard.value;
+if(A = B){  
+  let showResult = document.getElementById('resultsArea');
+let results = document.createElement('div')
+results.id= "winningResult";
+showResult.append(results);
+var shuffle = Math.floor(Math.random() * 3) + 1;
+if(shuffle === 1){
+  let results = document.createElement('div')
+  results.id= "winningResult";
+  results.innerHTML = "Tie";}
+if(shuffle === 1){
+  let results = document.createElement('div')
+  results.id= "winningResult";
+  results.innerHTML = "Push";}
+if(shuffle === 1){
+  let results = document.createElement('div')
+  results.id= "winningResult";
+  results.innerHTML = "Even";}  
+}
+
+let result = Math.max(A, B)
+if(result === A){
+  let showResult = document.getElementById('resultsArea');
+  let results = document.createElement('div')
+  results.id= "winningResult";
+  showResult.append(results);
+  results.innerHTML = " > ";
+}
+if(result === B){
+  let showResult = document.getElementById('resultsArea');
+  let results = document.createElement('div')
+  results.id= "winningResult";
+  showResult.append(results);
+  showResult.innerHTML = "<";
+}
+
+console.log(A, B);
 }
 if(time > 1 ){
   console.log("Card your switching:", TrailCard);
@@ -271,10 +312,64 @@ if(time > 1 ){
   // currentCard.append(currentCardArea);
   currentCard.append(card2);
   FrontCard = Object.assign(card2)
-}
-time+=1
+  
+  let A = TrailCard.value;
+  let B = FrontCard.value;
+  if(A==B){  
+    let showResult = document.getElementById('resultsArea');
+  let results = document.createElement('div')
+  results.id= "winningResult";
+  if(shuffle === 1){
+    results.innerHTML = "Tie";}
+  if(shuffle === 1){
+    results.innerHTML = "Push";}
+  if(shuffle === 1){
+    results.innerHTML = "Even";}
+}  
+  let result = Math.max(A, B)
+
+  if(result === A){
+    let results = document.getElementById('winningResult');
+    results.innerHTML = ">";
+
+  }
+  if(result === B){
+    let results = document.getElementById('winningResult');
+    results.innerHTML = "<";
+  }
 
 }
+time+=1;
+resultsTally += 1;
+}
+
+// var resultsTally = 1
+// function results(){
+//   let result = Math.max(TrailCard.value, FrontCard.value)
+//   console.log("Vaule:", TrailCard.value)
+//   let showResult = document.getElementById('resultsArea');
+//   let results = document.createElement('div')
+//   if(resultsTally === 1){
+//   if(result === TrailCard){
+//     showResult.append(results);
+//     results.innerHTML = " > ";
+//   }
+//   if(result === FrontCard){
+//     showResult.append(results);
+//     showResult.innerHTML = "<";
+//   }
+// }
+// if(resultsTally > 1){
+//   if(result === TrailCard){
+//     results.innerHTML = ">";
+
+//   }
+//   if(result === FrontCard){
+//     showResult.innerHTML = "<";
+//   }
+// }
+// resultsTally=+1;
+// }
 
 // function tester(){
 //   alert("all JS");
@@ -307,7 +402,8 @@ time+=1
 
     </div>
     <div id="details_plus">
-
+    <center><div id="resultsArea"></div></center>
+    <hr/>
     </div>
     <div id="details_cards">
       <BillBoard/>

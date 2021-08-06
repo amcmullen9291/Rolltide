@@ -203,3 +203,8 @@ Marqu
     border-color: black;
 
 }
+
+#resultsArea{
+    font-size: 36px;
+    color: red;
+}
