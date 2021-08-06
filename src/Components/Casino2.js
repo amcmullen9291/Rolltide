@@ -5,7 +5,7 @@ import PlaySong from './PlaySong';
 import BillBoard from './Marquee';
 import swal from 'sweetalert';
 
-function Casino() {
+function Casino2() {
   document.addEventListener('DOMContentLoaded', (event) => {
     console.log('DOM fully loaded and parsed');
   });
@@ -99,8 +99,7 @@ function Casino() {
   let card = "AH.jpg";
   let card2 = "8C.jpg"
   let cardBack = "CB.jpg";
-  var TrailCard;
-  var FrontCard;
+  var trailCard;
 
   function setup(){
   bidding.innerHTML = bid;
@@ -168,98 +167,84 @@ function begin(){
 }
 
 function findOrCreate(){
-  let previousCard = document.createElement('div');
-  let currentCard = document.createElement('div');
-  let cardBack = document.createElement('div');
-  let backContainer = document.createElement('div');
-  let previousCardArea = document.createElement('div');
+    dealButton.addEventListener('click', function firstPass(){
+        // swal("Just a Placeholder For Now.");  
+        buttonElement.disabled = false;
+        // -----card shuffle -----------
+        let i = Math.floor(Math.random() * numCardsLeft ) + 1;
+        let cardGame = document.getElementById('details_cards');
+    
+        var img = document.createElement("img");
+        img.class = "cards"
+        img.id = cardsObject["data"][i].attributes["card_number"]
+        img.value = cardsObject["data"][i].attributes["value"]
+        var value1 = cardsObject["data"][i].attributes["value"];
+        img.style.width = '83px';
+        img.style.height = '150px';
+        img.style.marginTop = '10%';
+            img.setAttribute("src", cardsObject["data"][i].attributes["image_url"]);
+            currentCard.appendChild(img);
+            cardsLeft.splice(i, 1);
+        this.removeEventListener('click', firstPass);
+          dealButton.disabled = true
+          swal("Place A Bet")
+    
+        dealButton.addEventListener('click', function secondPass(){
+          buttonElement.disabled = false;
+          let i = Math.floor(Math.random() * numCardsLeft ) + 1;
+          // alert("on the right track now")
+          var img2 = document.createElement("img");
+          img2.class = "cards"
+          img2.id = cardsObject["data"][i].attributes["card_number"]
+          img2.value = cardsObject["data"][i].attributes["value"]
+          var value2 = cardsObject["data"][i].attributes["value"];
+          console.log("===========");
+          console.log(value1);
+          console.log(value2);
+          img2.style.width = '83px';
+          img2.style.height = '150px';
+          img2.style.marginTop = '10%';
+              img2.setAttribute("src", cardsObject["data"][i].attributes["image_url"]);
+              currentCard.replaceChild(img2, img);
+              cardsLeft.splice(i, 1);
+          previousCardArea.append(img)
+          let available = document.getElementById("balance");
+          available.innerHTML = "$" + balance + ".00";
+          pGenerate("control");
+          swal("Will the next Card be Higher, or Lower?", {timer: 1900});
+          this.removeEventListener('click', secondPass);
+          dealButton.addEventListener('click', function thirdPass(){
+            buttonElement.disabled = false;
+    
+            // swal("Disco!", "now we program...")
+            let i = Math.floor(Math.random() * numCardsLeft ) + 1;
+            var img3 = document.createElement("img");
+            img3.class = "cards"
+            img3.id = cardsObject["data"][i].attributes["card_number"]
+            img3.value = cardsObject["data"][i].attributes["value"]
+            var value3 = cardsObject["data"][i].attributes["value"]
+            console.log("================");
+            console.log(value2)
+            console.log(value3);
+            // ------------ moved to compute()-----------
+            compute();
+            img3.style.width = '83px';
+            img3.style.height = '150px';
+            img3.style.marginTop = '10%';
+                img3.setAttribute("src", cardsObject["data"][i].attributes["image_url"]);
+                currentCard.replaceChild(img3, img2);
+                previousCard.replaceChild(img2, img);
+                value3 = Object.keys(value2 = value3)
+                cardsLeft.splice(i, 1); 
+                img = Object.assign(img2)
+                img2 = Object.assign(img3)
+          });
+        });
+      });
 
-  previousCard.id = 'previousCardArea';
-  currentCard.id = 'currentCardArea';
-  cardBack.id ='cardBackArea';
-  backContainer.id = 'currentCard';
-  previousCardArea.id = 'previousCard';
 
-
-  let cardTable = document.getElementById('details_cards');
-
-  cardTable.append(cardBack);
-  cardTable.append(currentCard);
-  cardTable.append(previousCard);
-  // ------------------------------------
-let img = document.createElement('img');
-const X = Math.floor(Math.random() * 51) + 1
-let img2 = document.createElement('img');
-let leadCard = cardDeck[X];
-img2.src = leadCard.image_url;
-img2.className = "cards";
-var imgID = leadCard.card_number;
-currentCard.append(previousCardArea);
-previousCardArea.append(img2)
-TrailCard = Object.assign(img2);
-
-console.log("TrailCard:", TrailCard)
-
-img.src= "./CB.jpg";
-img.className= "cards";
-cardBack.append(backContainer);
-backContainer.append(img);
-
-  // -------------------------------------------
-  swal("Welcome Back,", {timer: 2000,});
-// const X = Math.floor(Math.random() * 51) + 1
-console.log("First card:", cardDeck[X].image_url);
-setTimeout(() => {swal("Will the next Card be Higher, or Lower?")}, 2000);
-let bid_btn = document.getElementById('pause');
-bid_btn.disabled = false;
-let playButton = document.getElementById('gameStats');
-playButton.disabled = false;
-TrailCard = Object.assign(img2)
-console.log("moving Card", TrailCard)
-previousCard.append(TrailCard);
-
-};
-var time  = 1;
-function changeImage(){
-
-if(time == 1){
-  const rndInt = Math.floor(Math.random() * 51) + 1
-  console.log("Next Random card:", cardDeck[rndInt]); 
-  let LeadCard = cardDeck[rndInt];
- console.log(TrailCard)
-  card2 = document.createElement('img');
-  card2.src = LeadCard.image_url;
-  card2.className = "cards"
-  card2.value = LeadCard.value;
-
-  let currentCard = document.getElementById('currentCardArea');
-  let currentCardArea = document.getElementById('currentCard');
-  // currentCard.append(currentCardArea);
-  currentCard.append(card2);
-  FrontCard = Object.assign(card2)
-  console.log("Attributes:", FrontCard.value) //value set
-
-  console.log("Moved Card", TrailCard);
-let buttonDeal = document.getElementById('gameStats');
-console.log("target:", buttonDeal)
-  // buttonDeal.onClick.disabled = true;
-}
-if(time > 1 ){
-  console.log("Card your switching:", TrailCard);
-  console.log("Front Card:", FrontCard);
-
-  let previousCardArea = document.getElementById('previousCardArea')
-  previousCardArea.removeChild(TrailCard);
-  previousCardArea.append(FrontCard);
-  console.log(FrontCard.value)
-  TrailCard = Object.assign(FrontCard);
-  // previousCardArea.replaceChild(FrontCard, TrailCard)
-  console.log("Now its the Back card:", TrailCard)
-}
-time+=1
 
 }
-
 // function tester(){
 //   alert("all JS");
 // }
@@ -336,4 +321,4 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 
-     export default connect(mapStateToProps, mapDispatchToProps)(Casino); 
+     export default connect(mapStateToProps, mapDispatchToProps)(Casino2); 
