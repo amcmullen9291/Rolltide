@@ -209,11 +209,12 @@ Marqu
     color: red;
 }
 
-#backingChoice {
+#ChooseCardBack {
     display: none;
 }
 
-#backingChoice {
+#ChooseCardBack {
     background: yellow;
+    font-size: 24px;
     width:fit-content;
 }

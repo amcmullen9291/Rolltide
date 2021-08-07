@@ -204,6 +204,7 @@ console.log("TrailCard:", TrailCard)
 
 img.src= "./CB.jpg";
 img.className= "cards";
+img.id = "CurrentDeck";
 cardBack.append(backContainer);
 backContainer.append(img);
 
@@ -311,6 +312,15 @@ if(time > 1 ){
 }
 time+=1;
 }
+
+function chooseDeck(){
+  let decks = document.getElementById('ChooseCardBack')
+  decks.style.display = "block";
+}
+
+function newDeck(){
+  swal("New deck")
+}
   return (
     <>
         <div>
@@ -363,7 +373,14 @@ time+=1;
     </div>
     <button id="gameStats" onClick={changeImage}>Deal</button>
     </div>
-    <button>Settings</button>
+    <button onClick={chooseDeck}>Settings</button>
+    <center><div id="ChooseCardBack">
+          <center><div id="">Choose a Deck:</div>
+          <button><img className="cards" src={'./BB.jpg'} onClick={newDeck}/></button>
+          <button><img className="cards" src={'./RB.jpg'} onClick={newDeck}/></button>
+          <button><img className="cards" src={'./CB.jpg'} onClick={newDeck}/></button>
+          </center>
+    </div></center>
     </>
   )
 }
