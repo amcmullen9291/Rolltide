@@ -247,25 +247,6 @@ console.log("target:", buttonDeal)
   // buttonDeal.onClick.disabled = true;
 let A = TrailCard.value;
 let B = FrontCard.value;
-if(A = B){  
-  let showResult = document.getElementById('resultsArea');
-let results = document.createElement('div')
-results.id= "winningResult";
-showResult.append(results);
-var shuffle = Math.floor(Math.random() * 3) + 1;
-if(shuffle === 1){
-  let results = document.createElement('div')
-  results.id= "winningResult";
-  results.innerHTML = "Tie";}
-if(shuffle === 1){
-  let results = document.createElement('div')
-  results.id= "winningResult";
-  results.innerHTML = "Push";}
-if(shuffle === 1){
-  let results = document.createElement('div')
-  results.id= "winningResult";
-  results.innerHTML = "Even";}  
-}
 
 let result = Math.max(A, B)
 if(result === A){
@@ -315,17 +296,6 @@ if(time > 1 ){
   
   let A = TrailCard.value;
   let B = FrontCard.value;
-  if(A==B){  
-    let showResult = document.getElementById('resultsArea');
-  let results = document.createElement('div')
-  results.id= "winningResult";
-  if(shuffle === 1){
-    results.innerHTML = "Tie";}
-  if(shuffle === 1){
-    results.innerHTML = "Push";}
-  if(shuffle === 1){
-    results.innerHTML = "Even";}
-}  
   let result = Math.max(A, B)
 
   if(result === A){
