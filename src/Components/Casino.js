@@ -1,3 +1,4 @@
+  
 import React, { useState, useEffect, createElement } from 'react';
 import { connect, useDispatch } from 'react-redux';
 import { setCards } from '../Actions/GameActions';
@@ -221,7 +222,6 @@ previousCard.append(TrailCard);
 
 };
 var time  = 1;
-var resultsTally = 1;
 function changeImage(){
 
 if(time === 1){
@@ -310,42 +310,7 @@ if(time > 1 ){
 
 }
 time+=1;
-resultsTally += 1;
 }
-
-// var resultsTally = 1
-// function results(){
-//   let result = Math.max(TrailCard.value, FrontCard.value)
-//   console.log("Vaule:", TrailCard.value)
-//   let showResult = document.getElementById('resultsArea');
-//   let results = document.createElement('div')
-//   if(resultsTally === 1){
-//   if(result === TrailCard){
-//     showResult.append(results);
-//     results.innerHTML = " > ";
-//   }
-//   if(result === FrontCard){
-//     showResult.append(results);
-//     showResult.innerHTML = "<";
-//   }
-// }
-// if(resultsTally > 1){
-//   if(result === TrailCard){
-//     results.innerHTML = ">";
-
-//   }
-//   if(result === FrontCard){
-//     showResult.innerHTML = "<";
-//   }
-// }
-// resultsTally=+1;
-// }
-
-// function tester(){
-//   alert("all JS");
-// }
-
-// current and prevCard style will by assigned AFTER the random select
   return (
     <>
         <div>
