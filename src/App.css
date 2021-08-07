@@ -209,12 +209,21 @@ Marqu
     color: red;
 }
 
+/* --------------- settings button------------------ */
+
 #ChooseCardBack {
     display: none;
 }
 
 #ChooseCardBack {
+    float:right;
     background: yellow;
     font-size: 24px;
     width:fit-content;
+    margin-right: 5%;
+}
+
+#settings{
+    border-radius:2em;
+    background-color: darksalmon; 
 }

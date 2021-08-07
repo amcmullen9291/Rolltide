@@ -319,7 +319,9 @@ function chooseDeck(){
 }
 
 function newDeck(){
-  swal("New deck")
+  let decks = document.getElementById('ChooseCardBack')
+  decks.style.display = "none";
+
 }
   return (
     <>
@@ -352,7 +354,6 @@ function newDeck(){
     </div>
     <div id="details_cards">
       <BillBoard/>
-
       <div id="cardBackArea">
       <div id="currentCard">
       <img alt="RolltideCasino" id="deckBacks" className="cards" src={`${process.env.PUBLIC_URL}/${cardBack}`}/>
@@ -373,7 +374,8 @@ function newDeck(){
     </div>
     <button id="gameStats" onClick={changeImage}>Deal</button>
     </div>
-    <button onClick={chooseDeck}>Settings</button>
+    <br/>
+    <button onClick={chooseDeck} id="settings">Settings</button>
     <center><div id="ChooseCardBack">
           <center><div id="">Choose a Deck:</div>
           <button><img className="cards" src={'./BB.jpg'} onClick={newDeck}/></button>
