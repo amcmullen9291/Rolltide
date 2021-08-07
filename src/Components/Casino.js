@@ -375,7 +375,7 @@ function newDeck(){
     <button id="gameStats" onClick={changeImage}>Deal</button>
     </div>
     <br/>
-    <button onClick={chooseDeck} id="settings">Settings</button>
+    <button onClick={chooseDeck} id="settings">S e t t i n g s</button>
     <center><div id="ChooseCardBack">
           <center><div id="">Choose a Deck:</div>
           <button><img className="cards" src={'./BB.jpg'} onClick={newDeck}/></button>

@@ -226,4 +226,7 @@ Marqu
 #settings{
     border-radius:2em;
     background-color: darksalmon; 
+    font-family:fantasy;
+    font-size: 18px;
+    color: lightyellow;
 }
