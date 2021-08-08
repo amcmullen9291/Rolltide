@@ -275,6 +275,17 @@ if(result === A){
   resultsA.innerHTML = " > ";
   let settingsButton = document.getElementById('settings');
   settingsButton.disabled = false;
+
+  let yourBid = document.getElementById('bidding').innerHTML;
+  if(balance){
+  balance = parseInt(balance);
+  yourBid = parseInt(yourBid);
+  
+  balance -= yourBid;
+  console.log("Balance:", balance);
+  // let available = document.getElementById('balance');
+  // available.innerText = "$" + balance + ".00";
+}
 }
 
 if(result === B){
@@ -284,6 +295,15 @@ if(result === B){
   resultsB.id= "winningResult";
   showResultB.append(resultsB);
   showResultB.innerHTML = "<";
+
+  let yourBid = document.getElementById('bidding').innerHTML;
+  if(balance){
+  balance = parseInt(balance);
+  yourBid = parseInt(yourBid);
+  balance += yourBid;
+  console.log("Balance:", balance);
+  }
+
 }
 
 console.log(A, B);
@@ -329,12 +349,30 @@ if(time > 1 ){
     setTimeout(() => 4000,);
     resultsA.innerHTML = ">";
 
+    let yourBid = document.getElementById('bidding').innerHTML;
+    if(balance){
+    balance = parseInt(balance);
+    yourBid = parseInt(yourBid);  
+
+    balance -= yourBid;
+    console.log("Balance:", balance);
+    }
   };
 
   if(result === B){
     let resultsB = document.getElementById('winningResult');
     setTimeout(() => 4000,);
     resultsB.innerHTML = "<";
+
+    let yourBid = document.getElementById('bidding').innerHTML;
+    if(balance){
+    balance = parseInt(balance);
+    yourBid = parseInt(yourBid);
+    
+    balance += yourBid;
+    console.log("Balance:", balance);
+    }
+
 
   };
 
@@ -381,6 +419,15 @@ if(result === A2){
   let settingsButton2 = document.getElementById('settings');
   settingsButton2.disabled = false;
 
+  let yourBid = document.getElementById('bidding').innerHTML;
+  if(balance){
+  balance = parseInt(balance);
+  yourBid = parseInt(yourBid);
+  balance += yourBid;
+  console.log("Balance:", balance);
+  }
+
+
 }
 if(result === B2){
   let showResultB2 = document.getElementById('resultsArea');
@@ -389,6 +436,15 @@ if(result === B2){
   resultsB2.id= "winningResult";
   showResultB2.append(resultsB2);
   showResultB2.innerHTML = "<";
+
+  let yourBid = document.getElementById('bidding').innerHTML;
+  if(balance){
+  balance = parseInt(balance);
+  yourBid = parseInt(yourBid);
+  balance -= yourBid;
+  console.log("Balance:", balance);
+  }
+
 }
 
 console.log(A2, B2);
@@ -434,12 +490,29 @@ if(time > 1 ){
     setTimeout(() => 4000,);
     resultsA2.innerHTML = ">";
 
+  let yourBid = document.getElementById('bidding').innerHTML;
+  if(balance){
+  balance = parseInt(balance);
+  yourBid = parseInt(yourBid);
+  balance += yourBid;
+  console.log("Balance:", balance);
+  }
+
   };
 
   if(result === B2){
     let resultsB2 = document.getElementById('winningResult');
     setTimeout(() => 4000,);
     resultsB2.innerHTML = "<";
+
+    let yourBid = document.getElementById('bidding').innerHTML;
+    if(balance){
+    balance = parseInt(balance);
+    yourBid = parseInt(yourBid);
+    balance -= yourBid;
+    console.log("Balance:", balance);
+    }
+  
   };
 
 }
