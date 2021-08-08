@@ -448,7 +448,14 @@ time+=1;
 
 function chooseDeck(e){
   e.preventDefault();
+  let hideButton12 = document.getElementById('gameStats');
   setTimeout(() => 3000,);
+  let hideButton22 = document.getElementById('gameStats2');
+  setTimeout(() => 3000,);
+
+  hideButton12.style.visibility = "hidden";
+  hideButton22.style.visibility = "hidden";
+
   let area = document.getElementById('ChooseCardBack');
   setTimeout(() => 3000,);
   area.style.display = "block";
@@ -491,8 +498,12 @@ decks.append(DeckChoice);
 
 function DeckChose(){
   let chooser = document.getElementById('ChooseCardBack');
+  let hideButton1 = document.getElementById('gameStats');
+  let hideButton2 = document.getElementById('gameStats2');
   setTimeout(() => 3000,);
   chooser.style.display = "none";
+  hideButton1.style.visibility = "visible";
+  hideButton2.style.visibility = "visible";
 }
 function newChecker(){
   let chooser = document.getElementById('ChooseCardBack');
