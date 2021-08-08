@@ -283,8 +283,8 @@ if(result === A){
   
   balance -= yourBid;
   console.log("Balance:", balance);
-  // let available = document.getElementById('balance');
-  // available.innerText = "$" + balance + ".00";
+  let available = document.getElementById('balance');
+  available.innerText = "$" + balance + ".00";  
 }
 }
 
@@ -302,6 +302,8 @@ if(result === B){
   yourBid = parseInt(yourBid);
   balance += yourBid;
   console.log("Balance:", balance);
+  let available = document.getElementById('balance');
+  available.innerText = "$" + balance + ".00";  
   }
 
 }
@@ -356,6 +358,8 @@ if(time > 1 ){
 
     balance -= yourBid;
     console.log("Balance:", balance);
+    let available = document.getElementById('balance');
+    available.innerText = "$" + balance + ".00";    
     }
   };
 
@@ -371,6 +375,8 @@ if(time > 1 ){
     
     balance += yourBid;
     console.log("Balance:", balance);
+    let available = document.getElementById('balance');
+    available.innerText = "$" + balance + ".00";    
     }
 
 
@@ -425,6 +431,8 @@ if(result === A2){
   yourBid = parseInt(yourBid);
   balance += yourBid;
   console.log("Balance:", balance);
+  let available = document.getElementById('balance');
+  available.innerText = "$" + balance + ".00";  
   }
 
 
@@ -443,6 +451,8 @@ if(result === B2){
   yourBid = parseInt(yourBid);
   balance -= yourBid;
   console.log("Balance:", balance);
+  let available = document.getElementById('balance');
+  available.innerText = "$" + balance + ".00";
   }
 
 }
@@ -496,6 +506,8 @@ if(time > 1 ){
   yourBid = parseInt(yourBid);
   balance += yourBid;
   console.log("Balance:", balance);
+  let available = document.getElementById('balance');
+  available.innerText = "$" + balance + ".00";
   }
 
   };
@@ -511,6 +523,8 @@ if(time > 1 ){
     yourBid = parseInt(yourBid);
     balance -= yourBid;
     console.log("Balance:", balance);
+    let available = document.getElementById('balance');
+    available.innerText = "$" + balance + ".00";
     }
   
   };
