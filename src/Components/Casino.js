@@ -109,7 +109,7 @@ function Casino() {
   bidding.innerHTML = bid;
   dealButton.disabled= "true";
   buttonElement.disabled= "true";
-  // settingsButton.disabled = "true";
+  settingsButton.disabled = "true";
   
 }
 
@@ -319,14 +319,14 @@ if(time > 1 ){
 
     let resultsA = document.getElementById('winningResult');
     setTimeout(() => 4000,);
-    // resultsA.innerHTML = ">";
+    resultsA.innerHTML = ">";
 
   };
 
   if(result === B){
     let resultsB = document.getElementById('winningResult');
     setTimeout(() => 4000,);
-    // resultsB.innerHTML = "<";
+    resultsB.innerHTML = "<";
   };
 
 }
