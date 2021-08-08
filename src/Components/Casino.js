@@ -399,6 +399,32 @@ DeckChoice.id = "CurrentDeck";
 decks.append(DeckChoice);
 }
 
+// function RoundResults(final) {
+//   // let time = "times";
+//   let i =1;
+//   let number = 1;
+//   for (i=1; i <= 1; i++) {
+
+//     var outcome = final;
+//     let box = document.getElementById("details_plus");
+//     var br = document.createElement("br");
+//     var newP = document.createElement("p");
+//     var pText = document.createTextNode("Round " + number + ": " + outcome);
+     
+//     newP.appendChild(pText);
+//     box.appendChild(pText);
+//     box.appendChild(br);
+
+
+
+//     newP.id = "turn";
+//     var looping = document.getElementById("turn"); 
+//     var contentSection = document.getElementById("content");
+//     document.body.insertBefore(newP, contentSection);
+  
+//     // number +=1;
+//   };
+// };
 
   return (
     <>
@@ -449,7 +475,10 @@ decks.append(DeckChoice);
     </div>
     <button id="homeButton" onClick={begin}>Let's Play!</button>
     </div>
-    <button id="gameStats" onClick={changeImage}>Deal</button>
+    <br/> <br/><br/><br/><br/>
+    <button id="gameStats" onClick={changeImage}>↑</button><br/><br/><br/><br/>
+    <button id="gameStats" onClick={changeImage}>↓</button>
+
     </div>
     <br/>
     <button onClick={chooseDeck} id="settings">S e t t i n g s</button>
