@@ -81,7 +81,7 @@ function Casino() {
     fetchDeck();
   }, []);
 
-  console.log("Card Deck?", cardDeck)
+  console.log("Card Deck?", cardDeck);
 //   now it will be dynamic.... use:
 //  const image_url = `url(".{require('../public/diamonds/KD.jpg")`
 
@@ -91,6 +91,7 @@ function Casino() {
   let buttonElement = document.getElementById('pause');
   let plusButtonElement = document.getElementById('plus');
   let minusButtonElement = document.getElementById('minus');
+  let settingsButton = document.getElementById('settings');
   let bid = 25.00;
   let bidding = document.getElementById('bidding');
   let available = document.getElementById('balance');
@@ -104,9 +105,12 @@ function Casino() {
   var FrontCard;
 
   function setup(){
+
   bidding.innerHTML = bid;
   dealButton.disabled= "true";
   buttonElement.disabled= "true";
+  // settingsButton.disabled = "true";
+  
 }
 
 function plusBidding(){
@@ -136,7 +140,7 @@ function minusBidding(){
 }
 
 function placeBid(){
-  balance -= bid
+  balance -= bid;
   if (balance >= 0 && bid !== 0){
   available.innerHTML = "$" + balance + ".00" ;
   buttonElement.disabled = true;
@@ -166,6 +170,7 @@ function begin(){
 
     // available.innerHTML = "$" + balance + ".00" ;
     setTimeout(() => {available.innerHTML = "$" + balance + ".00" },2000);
+    // findOrCreate();
 }
 
 function findOrCreate(){
@@ -181,8 +186,8 @@ function findOrCreate(){
   backContainer.id = 'currentCard';
   previousCardArea.id = 'previousCard';
 
-
   let cardTable = document.getElementById('details_cards');
+  setTimeout(() => 2000,);
 
   cardTable.append(cardBack);
   cardTable.append(currentCard);
@@ -193,14 +198,14 @@ const X = Math.floor(Math.random() * 51) + 1
 let img2 = document.createElement('img');
 let leadCard = cardDeck[X];
 img2.src = leadCard.image_url;
-img2.value = leadCard.value
+img2.value = leadCard.value;
 img2.className = "cards";
 var imgID = leadCard.card_number;
 currentCard.append(previousCardArea);
-previousCardArea.append(img2)
+previousCardArea.append(img2);
 TrailCard = Object.assign(img2);
 
-console.log("TrailCard:", TrailCard)
+console.log("TrailCard:", TrailCard);
 
 img.src= "./CB.jpg";
 img.className= "cards";
@@ -217,8 +222,9 @@ let bid_btn = document.getElementById('pause');
 bid_btn.disabled = false;
 let playButton = document.getElementById('gameStats');
 playButton.disabled = false;
-TrailCard = Object.assign(img2)
-console.log("moving Card", TrailCard)
+// settingsButton.disabled = false;
+TrailCard = Object.assign(img2);
+console.log("moving Card", TrailCard);
 previousCard.append(TrailCard);
 
 };
@@ -229,40 +235,47 @@ if(time === 1){
   const rndInt = Math.floor(Math.random() * 51) + 1;
   console.log("Next Random card:", cardDeck[rndInt]); 
   let LeadCard = cardDeck[rndInt];
- console.log(TrailCard)
+ console.log(TrailCard);
   card2 = document.createElement('img');
+  setTimeout(() => 2000,);
   card2.src = LeadCard.image_url;
-  card2.className = "cards"
+  card2.className = "cards";
   card2.value = LeadCard.value;
 
   let currentCard = document.getElementById('currentCardArea');
   let currentCardArea = document.getElementById('currentCard');
+  setTimeout(() => 2000,);
   // currentCard.append(currentCardArea);
   currentCard.append(card2);
-  FrontCard = Object.assign(card2)
-  console.log("Attributes:", FrontCard.value) //value set
+  FrontCard = Object.assign(card2);
+  console.log("Attributes:", FrontCard.value); //value set
 
   console.log("Moved Card", TrailCard);
 let buttonDeal = document.getElementById('gameStats');
-console.log("target:", buttonDeal)
+console.log("target:", buttonDeal);
   // buttonDeal.onClick.disabled = true;
 let A = TrailCard.value;
 let B = FrontCard.value;
 
-let result = Math.max(A, B)
+let result = Math.max(A, B);
 if(result === A){
   let showResult = document.getElementById('resultsArea');
-  let results = document.createElement('div')
-  results.id= "winningResult";
-  showResult.append(results);
-  results.innerHTML = " > ";
+  let resultsA = document.createElement('div');
+  setTimeout(() => 2000,);
+  resultsA.id= "winningResult";
+  showResult.append(resultsA);
+  resultsA.innerHTML = " > ";
+  let settingsButton = document.getElementById('settings');
+  settingsButton.disabled = false;
+
 }
 if(result === B){
-  let showResult = document.getElementById('resultsArea');
-  let results = document.createElement('div')
-  results.id= "winningResult";
-  showResult.append(results);
-  showResult.innerHTML = "<";
+  let showResultB = document.getElementById('resultsArea');
+  let resultsB = document.createElement('div');
+  setTimeout(() => 2000,);
+  resultsB.id= "winningResult";
+  showResultB.append(resultsB);
+  showResultB.innerHTML = "<";
 }
 
 console.log(A, B);
@@ -271,93 +284,118 @@ if(time > 1 ){
   console.log("Card your switching:", TrailCard);
   console.log("Front Card:", FrontCard);
 
-  let previousCardArea = document.getElementById('previousCardArea')
+  let previousCardArea = document.getElementById('previousCardArea');
+  setTimeout(() => 2000,);
   previousCardArea.removeChild(TrailCard);
   previousCardArea.append(FrontCard);
-  console.log(FrontCard.value)
+  console.log(FrontCard.value);
   TrailCard = Object.assign(FrontCard);
-  console.log("Now its the Back card:", TrailCard)
+  console.log("Now its the Back card:", TrailCard);
 
   //do a new random card and object assign it to front card
 
-  const  X2= Math.floor(Math.random() * 51) + 1
+  const  X2 = Math.floor(Math.random() * 51) + 1;
   console.log("Next Random card:", cardDeck[X2]); 
   let LeadCard = cardDeck[X2];
 
   let card2 = document.createElement('img');
   card2.src = LeadCard.image_url;
-  card2.className = "cards"
+  card2.className = "cards";
   card2.value = LeadCard.value;
 
   let currentCard = document.getElementById('currentCardArea');
   let currentCardArea = document.getElementById('currentCard');
+  setTimeout(() => 2000,);
+
   // currentCard.append(currentCardArea);
   currentCard.append(card2);
-  FrontCard = Object.assign(card2)
+  FrontCard = Object.assign(card2);
   
   let A = TrailCard.value;
   let B = FrontCard.value;
-  let result = Math.max(A, B)
+  let result = Math.max(A, B);
 
   if(result === A){
-    let results = document.getElementById('winningResult');
-    results.innerHTML = ">";
 
-  }
+    let resultsA = document.getElementById('winningResult');
+    setTimeout(() => 4000,);
+    // resultsA.innerHTML = ">";
+
+  };
+
   if(result === B){
-    let results = document.getElementById('winningResult');
-    results.innerHTML = "<";
-  }
+    let resultsB = document.getElementById('winningResult');
+    setTimeout(() => 4000,);
+    // resultsB.innerHTML = "<";
+  };
 
 }
 time+=1;
 }
 
-function chooseDeck(){
-  let decks = document.getElementById('ChooseCardBack');
-  decks.style.display = "block";
+function chooseDeck(e){
+  e.preventDefault();
+  setTimeout(() => 3000,);
+  let area = document.getElementById('ChooseCardBack');
+  setTimeout(() => 3000,);
+  area.style.display = "block";
 }
 
 function newBlue(){
-  let chooser = document.getElementById('ChooseCardBack')
-  let decks = document.getElementById('currentCard')
-  let OldDeck = document.getElementById('deckBacks')
-console.log("Deck to Remove:", OldDeck)
+  let chooser = document.getElementById('ChooseCardBack');
+  setTimeout(() => 3000,);
+  let decks = document.getElementById('currentCard');
+  setTimeout(() => 3000,);
+  let OldDeck = document.getElementById('CurrentDeck');
+// console.log("Deck to Remove:", OldDeck);
 
 decks.removeChild(OldDeck);
 let DeckChoice = document.createElement('img');
+setTimeout(() => 3000,);
 DeckChoice.src= './BB.jpg';
 DeckChoice.className= "cards";
-DeckChoice.id = "deckBacks";
+DeckChoice.id = "CurrentDeck";
 decks.append(DeckChoice);
 
 }
 
 function newRed(){
-  let chooser = document.getElementById('ChooseCardBack')
-  let decks = document.getElementById('currentCard')
-  let OldDeck = document.getElementById('deckBacks')
-console.log("Deck to Remove:", OldDeck)
+  let chooser = document.getElementById('ChooseCardBack');
+  setTimeout(() => 3000,);
+  let decks = document.getElementById('currentCard');
+  setTimeout(() => 3000,);
+  let OldDeck = document.getElementById('CurrentDeck');
+console.log("Deck to Remove:", OldDeck);
 
 decks.removeChild(OldDeck);
 let DeckChoice = document.createElement('img');
+setTimeout(() => 3000,);
 DeckChoice.src= './RB.jpg';
 DeckChoice.className= "cards";
-DeckChoice.id = "deckBacks";
+DeckChoice.id = "CurrentDeck";
 decks.append(DeckChoice);
 }
 
+function DeckChose(){
+  let chooser = document.getElementById('ChooseCardBack');
+  setTimeout(() => 3000,);
+  chooser.style.display = "none";
+}
 function newChecker(){
-  let chooser = document.getElementById('ChooseCardBack')
-  let decks = document.getElementById('currentCard')
-  let OldDeck = document.getElementById('deckBacks')
-console.log("Deck to Remove:", OldDeck)
+  let chooser = document.getElementById('ChooseCardBack');
+  setTimeout(() => 3000,);
+  let decks = document.getElementById('currentCard');
+  setTimeout(() => 3000,);
+  let OldDeck = document.getElementById('CurrentDeck');
+  setTimeout(() => 3000,);
+console.log("Deck to Remove:", OldDeck);
 
 decks.removeChild(OldDeck);
 let DeckChoice = document.createElement('img');
+setTimeout(() => 3000,);
 DeckChoice.src= './CB.jpg';
 DeckChoice.className= "cards";
-DeckChoice.id = "deckBacks";
+DeckChoice.id = "CurrentDeck";
 decks.append(DeckChoice);
 }
 
@@ -395,7 +433,7 @@ decks.append(DeckChoice);
       <BillBoard/>
       <div id="cardBackArea">
       <div id="currentCard">
-      <img alt="RolltideCasino" id="deckBacks" className="cards" src={`${process.env.PUBLIC_URL}/${cardBack}`}/>
+      <img alt="RolltideCasino" id="CurrentDeck" className="cards" src={`${process.env.PUBLIC_URL}/${cardBack}`}/>
       </div>
     </div>
 
@@ -416,7 +454,7 @@ decks.append(DeckChoice);
     <br/>
     <button onClick={chooseDeck} id="settings">S e t t i n g s</button>
     <center><div id="ChooseCardBack">
-          <center><div id="">Choose a Deck: <button id="okay">≋ ✔</button></div>
+          <center><div id="">Choose a Deck: <button id="okay" onClick={DeckChose}>≋ ✔</button></div>
           <button><img className="cards" alt="Card Back" src={'./BB.jpg'} onClick={newBlue}/></button>
           <button><img className="cards" alt="Card Back" src={'./RB.jpg'} onClick={newRed}/></button>
           <button><img className="cards" alt= "Card Back" src={'./CB.jpg'} onClick={newChecker}/></button>
