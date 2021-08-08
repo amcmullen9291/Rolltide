@@ -242,6 +242,7 @@ Marqu
     /* color: lightyellow; */
     color: greenyellow;
     display: hidden;
+    position: relative;
 }
 
 #CurrentDeck{

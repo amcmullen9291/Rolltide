@@ -605,7 +605,7 @@ decks.append(DeckChoice);
 
     </div>
     <br/>
-    <button onClick={chooseDeck} id="settings">S e t t i n g s</button>
+    <button onClick={chooseDeck} id="settings">S e t t i n g s</button><br/>
     <center><div id="ChooseCardBack">
           <center><div id="">Choose a Deck: <button id="okay" onClick={DeckChose}>≋ ✔</button></div>
           <button><img className="cards" alt="Card Back" src={'./BB.jpg'} onClick={newBlue}/></button>
