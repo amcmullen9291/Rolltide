@@ -221,12 +221,53 @@ Marqu
     font-size: 24px;
     width:fit-content;
     margin-right: 5%;
+    box-shadow: 20px 20px 6px #000000;
+    -webkit-transition: box-shadow 0.5s 0s ease;
+    transition: box-shadow 0.5s 0s ease;
 }
 
 #settings{
     border-radius:2em;
-    background-color: darksalmon; 
+    background-color: blue; 
     font-family:fantasy;
     font-size: 18px;
-    color: lightyellow;
+    /* color: lightyellow; */
+    color: greenyellow;
+}
+
+#deckBacks{
+    animation: fadeIn 5s;
+    -webkit-animation: fadeIn 5s;
+    -moz-animation: fadeIn 5s;
+    -o-animation: fadeIn 5s;
+    -ms-animation: fadeIn 5s;
+}
+@keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+  
+  @-moz-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+  
+  @-webkit-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+  
+  @-o-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+  
+  @-ms-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+
+#okay{
+    border-radius: 50%;
+    margin-bottom: 2%;
 }

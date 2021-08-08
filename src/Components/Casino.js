@@ -314,15 +314,54 @@ time+=1;
 }
 
 function chooseDeck(){
-  let decks = document.getElementById('ChooseCardBack')
+  let decks = document.getElementById('ChooseCardBack');
   decks.style.display = "block";
 }
 
-function newDeck(){
-  let decks = document.getElementById('ChooseCardBack')
-  decks.style.display = "none";
+function newBlue(){
+  let chooser = document.getElementById('ChooseCardBack')
+  let decks = document.getElementById('currentCard')
+  let OldDeck = document.getElementById('deckBacks')
+console.log("Deck to Remove:", OldDeck)
+
+decks.removeChild(OldDeck);
+let DeckChoice = document.createElement('img');
+DeckChoice.src= './BB.jpg';
+DeckChoice.className= "cards";
+DeckChoice.id = "deckBacks";
+decks.append(DeckChoice);
 
 }
+
+function newRed(){
+  let chooser = document.getElementById('ChooseCardBack')
+  let decks = document.getElementById('currentCard')
+  let OldDeck = document.getElementById('deckBacks')
+console.log("Deck to Remove:", OldDeck)
+
+decks.removeChild(OldDeck);
+let DeckChoice = document.createElement('img');
+DeckChoice.src= './RB.jpg';
+DeckChoice.className= "cards";
+DeckChoice.id = "deckBacks";
+decks.append(DeckChoice);
+}
+
+function newChecker(){
+  let chooser = document.getElementById('ChooseCardBack')
+  let decks = document.getElementById('currentCard')
+  let OldDeck = document.getElementById('deckBacks')
+console.log("Deck to Remove:", OldDeck)
+
+decks.removeChild(OldDeck);
+let DeckChoice = document.createElement('img');
+DeckChoice.src= './CB.jpg';
+DeckChoice.className= "cards";
+DeckChoice.id = "deckBacks";
+decks.append(DeckChoice);
+}
+
+
   return (
     <>
         <div>
@@ -377,10 +416,10 @@ function newDeck(){
     <br/>
     <button onClick={chooseDeck} id="settings">S e t t i n g s</button>
     <center><div id="ChooseCardBack">
-          <center><div id="">Choose a Deck:</div>
-          <button><img className="cards" src={'./BB.jpg'} onClick={newDeck}/></button>
-          <button><img className="cards" src={'./RB.jpg'} onClick={newDeck}/></button>
-          <button><img className="cards" src={'./CB.jpg'} onClick={newDeck}/></button>
+          <center><div id="">Choose a Deck: <button id="okay">≋ ✔</button></div>
+          <button><img className="cards" alt="Card Back" src={'./BB.jpg'} onClick={newBlue}/></button>
+          <button><img className="cards" alt="Card Back" src={'./RB.jpg'} onClick={newRed}/></button>
+          <button><img className="cards" alt= "Card Back" src={'./CB.jpg'} onClick={newChecker}/></button>
           </center>
     </div></center>
     </>
