@@ -21,7 +21,9 @@ color: darkred;
 /* ------------------buttons---------- */
 #pause{
     font-size: 24px;
-    color: brown;
+    color: blue;
+    background: greenyellow;
+    margin-right: 3%;
 }
 
 #heart{
@@ -241,8 +243,7 @@ Marqu
     font-size: 18px;
     /* color: lightyellow; */
     color: greenyellow;
-    display: hidden;
-    position: relative;
+    visibility: visible;
 }
 
 #CurrentDeck{

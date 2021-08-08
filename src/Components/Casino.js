@@ -221,7 +221,7 @@ backContainer.append(img);
 console.log("First card:", cardDeck[X].image_url);
 setTimeout(() => {swal("Will the next Card be Higher, or Lower?")}, 2000);
 let bid_btn = document.getElementById('pause');
-bid_btn.disabled = false;
+bid_btn.disabled = true;
 let playButton = document.getElementById('gameStats');
 let playButton2 = document.getElementById('gameStats2');
 
@@ -235,7 +235,7 @@ previousCard.append(TrailCard);
 
 };
 
-
+// --------------------- card draw loop---------------------
 var time  = 1;
 function changeImageUp(){
 
@@ -275,8 +275,8 @@ if(result === A){
   resultsA.innerHTML = " > ";
   let settingsButton = document.getElementById('settings');
   settingsButton.disabled = false;
-
 }
+
 if(result === B){
   let showResultB = document.getElementById('resultsArea');
   let resultsB = document.createElement('div');
@@ -335,6 +335,7 @@ if(time > 1 ){
     let resultsB = document.getElementById('winningResult');
     setTimeout(() => 4000,);
     resultsB.innerHTML = "<";
+
   };
 
 }
@@ -523,32 +524,6 @@ DeckChoice.id = "CurrentDeck";
 decks.append(DeckChoice);
 }
 
-// function RoundResults(final) {
-//   // let time = "times";
-//   let i =1;
-//   let number = 1;
-//   for (i=1; i <= 1; i++) {
-
-//     var outcome = final;
-//     let box = document.getElementById("details_plus");
-//     var br = document.createElement("br");
-//     var newP = document.createElement("p");
-//     var pText = document.createTextNode("Round " + number + ": " + outcome);
-     
-//     newP.appendChild(pText);
-//     box.appendChild(pText);
-//     box.appendChild(br);
-
-
-
-//     newP.id = "turn";
-//     var looping = document.getElementById("turn"); 
-//     var contentSection = document.getElementById("content");
-//     document.body.insertBefore(newP, contentSection);
-  
-//     // number +=1;
-//   };
-// };
 
   return (
     <>
@@ -565,7 +540,7 @@ decks.append(DeckChoice);
     </h1>
     <button id='plus' onClick={plusBidding}> Increase Bid </button>      <button id='minus' onClick={minusBidding}> Decrease Bid </button><br/>
 <hr/>
-<span>higher:<input type="checkbox" id="higher" name="higher" /></span><br/>    <button id='pause' onClick={placeBid}> BID </button>
+    <button id='pause' onClick={chooseDeck}>Bid</button>
 <button id= "cashOut"> Cash Out <i class='far fa-money-bill-alt'></i></button><br/>
 <br/>
 <span>Your Balance:</span>
